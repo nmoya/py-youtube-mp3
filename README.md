@@ -13,7 +13,7 @@ Simplest app possible, no more changes will be made on this repository. Feel fre
 - Clone this repostory ( git clone https://github.com/nmoya/py-youtube-mp3.git )
 - Create a text file (e.g links.txt).
 - At each line, insert the video URL from Youtube. Lines with % will be ignored.
-- Execute:
+- Go to the project folder (the one you just cloned) and execute:
 ```
 python app.py <file_you_created.txt>
 ```
