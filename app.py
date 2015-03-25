@@ -1,3 +1,4 @@
+import sys
 import os
 import subprocess
 import urllib2
@@ -39,7 +40,11 @@ def get_video_title(url):
 
 if __name__ == "__main__":
 	command = "youtube-dl -t -x --audio-format mp3 --audio-quality 5 %s"
-	with open("links.txt") as arq:
+	if len(sys.argv) != 2:
+		print "python app.py <text file with links>"
+		sys.exit(1)
+
+	with open(sys.argv[1]) as arq:
 		musics = arq.read().split("\n")
 		downloaded = [f for f in os.listdir(".") if f.endswith(".mp3")]
 		for music in musics:
@@ -52,6 +57,3 @@ if __name__ == "__main__":
 					print "--------------------------------------------------------------"
 					rtn_code = download(music)
 				
-			
-
-
