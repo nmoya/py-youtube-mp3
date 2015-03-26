@@ -1,5 +1,8 @@
+downloaded.txt
 *.mp3
 links.txt
+Musics.txt
+linkssmall.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

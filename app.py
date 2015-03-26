@@ -9,7 +9,7 @@ def download(url, title):
 	return subprocess.call(["youtube-dl", "-x",
 							"--audio-format", "mp3",
 							"--audio-quality", "5",
-							url, "-o", title])
+							url, "-o", title+".%(ext)s"])
 
 
 def clean_string(string):
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 					print "--------------------------------------------------------------"
 					print "Downloading", title, "..."
 					print "--------------------------------------------------------------"
-					rtn_code = download(video_url, title)
+					rtn_code = download(video_url, title.replace(".mp3", ""))
 				if video_url not in downloaded:
 					downloaded.append(video_url)
 			else:
