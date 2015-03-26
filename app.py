@@ -68,12 +68,14 @@ if __name__ == "__main__":
 			title = get_video_title(video_url)
 			rtn_code = 1
 			if video_url not in downloaded or force:
-				while rtn_code != 0:
+				counter = 0
+				while rtn_code != 0 and counter < 5:
 					print "--------------------------------------------------------------"
 					print "Downloading", title, "..."
 					print "--------------------------------------------------------------"
 					rtn_code = download(video_url, title.replace(".mp3", ""))
-				if video_url not in downloaded:
+					counter += 1
+				if video_url not in downloaded and counter != 5:
 					downloaded.append(video_url)
 			else:
 				print "Title:", title, "was downloaded previously. Re-execute with --force"
